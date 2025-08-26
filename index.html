@@ -14,7 +14,6 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
                     <li><a href="#">Portfolio</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -48,12 +47,12 @@
                     </p>
 
                     <div class="tab-titles">
-                        <p class="tab-links active-link">Skills</p>
-                        <p class="tab-links">Education</p>
-                        <p class="tab-links">Experience</p>
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
                     </div>
 
-                    <div class="tab-contents">
+                    <div class="tab-contents active-tab" id="skills">
                         <ul>
                             <li><span>Programming Languages</span><br>Java, Python, C</li>
                             <li><span>Tools</span><br> Valgrind, GDB, Vim</li>
@@ -61,14 +60,14 @@
                         </ul>
                     </div>
 
-                    <div class="tab-contents">
+                    <div class="tab-contents" id="education">
                         <ul>
-                            <li><span>University of California, San Diego</span><br>Sep 2024 = Jun 2028</li>
+                            <li><span>University of California, San Diego</span><br>Sep 2024 - Jun 2028</li>
                             <li><span>Delhi Public School, Navi Mumbai</span><br> Apr 2022 - Jun 2024</li>
                         </ul>
                     </div>
 
-                    <div class="tab-contents">
+                    <div class="tab-contents" id="experience">
                         <ul>
                             <li><span>Orientation Leader</span><br> Apr 2025 - Sep 2025</li>
                             <li><span>Lead Peer Mentor</span><br> Jun 2025 - Sep 2025</li>
@@ -79,5 +78,28 @@
             </div>
         </div>
     </div>
+    <!-- --------portfolio----- -->
+
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">Projects</h1>
+        </div>
+    </div>
+
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
 </body>
 </html>
